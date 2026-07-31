@@ -1,4 +1,4 @@
-public class Livre {
+public class Livre implements Empruntable {
     private String titre;
     private String auteur;
     private String isbn;
@@ -29,6 +29,21 @@ public class Livre {
 
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
+    }
+
+    @Override
+    public boolean estDisponible() {
+        return disponible;
+    }
+
+    @Override
+    public void emprunter() {
+        this.disponible = false;
+    }
+
+    @Override
+    public void retourner() {
+        this.disponible = true;
     }
 
     @Override
